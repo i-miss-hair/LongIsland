@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5htnqh1bn7x7"]
+
+[ext_resource type="Script" uid="uid://hg72q0pxj1yr" path="res://player.gd" id="1_4wuf8"]
+[ext_resource type="Texture2D" uid="uid://crx6r4k5hxwr1" path="res://kiszak kot.png" id="2_s02eq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eflb2"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_eflb2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4qc02"]
+gradient = SubResource("Gradient_eflb2")
+fill_to = Vector2(0.126087, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wuf8"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+scale = Vector2(0.1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-288, 0)
+shape = SubResource("RectangleShape2D_eflb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallLeft"]
+position = Vector2(-288, 0)
+texture = SubResource("GradientTexture2D_4qc02")
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+scale = Vector2(0.1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(292, 0)
+shape = SubResource("RectangleShape2D_eflb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallRight"]
+position = Vector2(292, 0)
+texture = SubResource("GradientTexture2D_4qc02")
+
+[node name="WallDown" type="StaticBody2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDown"]
+position = Vector2(292, 0)
+shape = SubResource("RectangleShape2D_eflb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallDown"]
+position = Vector2(292, 0)
+texture = SubResource("GradientTexture2D_4qc02")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_4wuf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_4wuf8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-4.76837e-07, 1.19209e-07)
+scale = Vector2(0.00651445, 0.00915109)
+texture = ExtResource("2_s02eq")
