@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crx6r4k5hxwr1"
-path="res://.godot/imported/kiszak kot.png-1533721db8b5485ac7e9a0ee35e9f7a6.ctex"
+uid="uid://0hjoyo1m5xy6"
+path="res://.godot/imported/Circle.png-b899a14031d4169f76e5d23cfcbacaca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kiszak kot.png"
-dest_files=["res://.godot/imported/kiszak kot.png-1533721db8b5485ac7e9a0ee35e9f7a6.ctex"]
+source_file="res://art/Circle.png"
+dest_files=["res://.godot/imported/Circle.png-b899a14031d4169f76e5d23cfcbacaca.ctex"]
 
 [params]
 

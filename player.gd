@@ -1,25 +1,24 @@
 extends CharacterBody2D
 
-@export var speed: float = 300
+const SPEED = 90
+
+func get_four_direction_vector (diagonal_allowed: bool) -> Vector2:
+	var velocity: Vector2 = Vector2.ZERO
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	elif Input.is_action_just_pressed("ui_right"):
+		velocity.x += 1
+	
+	if diagonal_allowed or is_zero_approx(velocity.x):
+		if Input.is_action_just_pressed("ui_up"):
+			velocity.y -= 1
+		elif Input.is_action_pressed("ui_down"):
+			velocity.y += 1
+	return velocity
 
 func _physics_process(delta: float) -> void:
-	#--- RUCH ---
-	var direction = Vector2.ZERO
+	var movement: Vector2 = get_four_direction_vector(true)
+	if movement:
+		velocity = movement * SPEED
 	
-	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
-	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		direction.y += 1
-	if Input.is_action_pressed("ui_up"):
-		direction.y -= 1
-	
-	velocity = direction.normalized() * speed
 	move_and_slide()
-	
-	#--- ROTACJA W STRONĘ MYSZY---
-	
-	var mouse_pos = get_global_mouse_position()
-	var to_mouse = mouse_pos - global_position
-	rotation = to_mouse.angle()

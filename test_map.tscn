@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5htnqh1bn7x7"]
+[gd_scene load_steps=7 format=3 uid="uid://cdutc136wyxwp"]
 
-[ext_resource type="Script" uid="uid://hg72q0pxj1yr" path="res://player.gd" id="1_4wuf8"]
-[ext_resource type="Texture2D" uid="uid://crx6r4k5hxwr1" path="res://kiszak kot.png" id="2_s02eq"]
+[ext_resource type="Texture2D" uid="uid://crx6r4k5hxwr1" path="res://art/kiszak kot.png" id="2_s02eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eflb2"]
 size = Vector2(64, 64)
@@ -11,6 +10,34 @@ size = Vector2(64, 64)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4qc02"]
 gradient = SubResource("Gradient_eflb2")
 fill_to = Vector2(0.126087, 1)
+
+[sub_resource type="GDScript" id="GDScript_4qc02"]
+script/source = "extends CharacterBody2D
+
+@export var speed: float = 300
+
+func _physics_process(delta: float) -> void:
+	#--- RUCH ---
+	var direction = Vector2.ZERO
+	
+	if Input.is_action_pressed(\"ui_right\"):
+		direction.x += 1
+	if Input.is_action_pressed(\"ui_left\"):
+		direction.x -= 1
+	if Input.is_action_pressed(\"ui_down\"):
+		direction.y += 1
+	if Input.is_action_pressed(\"ui_up\"):
+		direction.y -= 1
+	
+	velocity = direction.normalized() * speed
+	move_and_slide()
+	
+	#--- ROTACJA W STRONĘ MYSZY---
+	
+	var mouse_pos = get_global_mouse_position()
+	var to_mouse = mouse_pos - global_position
+	rotation = to_mouse.angle()
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wuf8"]
 
@@ -51,7 +78,7 @@ position = Vector2(292, 0)
 texture = SubResource("GradientTexture2D_4qc02")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_4wuf8")
+script = SubResource("GDScript_4qc02")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 scale = Vector2(0.4, 0.4)
@@ -61,3 +88,6 @@ shape = SubResource("CircleShape2D_4wuf8")
 position = Vector2(-4.76837e-07, 1.19209e-07)
 scale = Vector2(0.00651445, 0.00915109)
 texture = ExtResource("2_s02eq")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(10, 10)
