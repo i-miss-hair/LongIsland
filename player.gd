@@ -15,3 +15,4 @@ func _physics_process(delta: float) -> void:
 		var direction: Vector2 = start_pos.direction_to(get_global_mouse_position())
 		get_owner().add_child(inst)
 		inst.start(start_pos, direction)
+#XDDDDDDD
