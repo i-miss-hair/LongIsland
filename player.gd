@@ -1,26 +1,17 @@
 extends CharacterBody2D
 
 const SPEED = 90
+const BULLET: PackedScene = preload("res://bullet.tscn")
 
-# Sprawdzamy wciśnięcie przycisków ruchu w osi X (lewo/prawo).
-func get_four_direction_vector (diagonal_allowed: bool) -> Vector2:
-	var velocity: Vector2 = Vector2.ZERO
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	elif Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-	
-# Sprawdzamy wciśnięcie przycisków ruchu w osi Y (góra/dół).
-	if diagonal_allowed or is_zero_approx(velocity.x):
-		if Input.is_action_pressed("ui_up"):
-			velocity.y -= 1
-		elif Input.is_action_pressed("ui_down"):
-			velocity.y += 1
-	# Zwracamy obliczony wektor kierunku.
-	return velocity
 
 # Główna funkcja wywoływana w każdej klatce fizyki (60 razy na sekundę domyślnie).
 func _physics_process(delta: float) -> void:
-	velocity = get_four_direction_vector(true) * SPEED
-	
+	velocity = Math.get_four_direction_vector(true) * SPEED
 	move_and_slide()
+	
+	if Input.is_action_pressed("left_click_pressed"):
+		var inst: Bullet = BULLET.instantiate()
+		var start_pos: Vector2 = global_position
+		var direction: Vector2 = start_pos.direction_to(get_global_mouse_position())
+		get_owner().add_child(inst)
+		inst.start(start_pos, direction)
