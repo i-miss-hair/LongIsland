@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://da0v6xoqfhwlt"]
+[gd_scene load_steps=3 format=3 uid="uid://da0v6xoqfhwlt"]
 
 [ext_resource type="PackedScene" uid="uid://c781vgafk7f5n" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="PackedScene" uid="uid://bk0isb2ruw6b7" path="res://enemy.tscn" id="2_hbghi"]
 
 [node name="Level1" type="Node2D"]
 
@@ -13,3 +14,12 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_3hls8")]
 position = Vector2(160, 81)
+
+[node name="Enemy" parent="." instance=ExtResource("2_hbghi")]
+position = Vector2(243, 48)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_hbghi")]
+position = Vector2(94, 98)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_hbghi")]
+position = Vector2(194, 123)
