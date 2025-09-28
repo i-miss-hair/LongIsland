@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c781vgafk7f5n" path="res://player.tscn" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://bk0isb2ruw6b7" path="res://enemy.tscn" id="2_hbghi"]
 
-[node name="Level1" type="Node2D"]
+[node name="level_1" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(320, 180)
@@ -23,3 +23,20 @@ position = Vector2(94, 98)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_hbghi")]
 position = Vector2(194, 123)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 320.0
+offset_bottom = 180.0
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="AmmoCount" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "12/12"
