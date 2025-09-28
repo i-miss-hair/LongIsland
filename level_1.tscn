@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://da0v6xoqfhwlt"]
+[gd_scene load_steps=19 format=4 uid="uid://da0v6xoqfhwlt"]
 
 [ext_resource type="PackedScene" uid="uid://c781vgafk7f5n" path="res://player.tscn" id="1_3hls8"]
 [ext_resource type="Texture2D" uid="uid://ddd3okcd0vj3r" path="res://art/floors/floor1.png" id="1_j7kpp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dql1h2ymlu66s" path="res://art/floors/floor4.png" id="5_1pe0h"]
 [ext_resource type="Texture2D" uid="uid://dbu260w2mn3dt" path="res://art/walls/fall1.png" id="6_bjebc"]
 [ext_resource type="Texture2D" uid="uid://bvfe3y01f1s52" path="res://art/floors/floor1_2_1.png" id="7_5rr72"]
+[ext_resource type="Texture2D" uid="uid://dhotvespuc8b1" path="res://art/facecharacter1.png" id="10_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27bay"]
 texture = ExtResource("1_j7kpp")
@@ -96,3 +97,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "12/12"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+position = Vector2(53, 168)
+scale = Vector2(0.382813, 0.320312)
+texture = ExtResource("10_gyffv")
