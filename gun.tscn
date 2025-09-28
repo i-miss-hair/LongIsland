@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxxv2y74lix2c"]
+[gd_scene load_steps=4 format=3 uid="uid://bxxv2y74lix2c"]
 
 [ext_resource type="Script" uid="uid://bhk1tqj17ggk2" path="res://gun.gd" id="1_vk1bi"]
 [ext_resource type="AudioStream" uid="uid://dxsp3x18lcjjm" path="res://sounds/shoot-5-102360.mp3" id="2_dk5gl"]
+[ext_resource type="AudioStream" uid="uid://p8alww7gweax" path="res://sounds/reload.mp3" id="3_kw0bs"]
 
 [node name="Gun" type="Sprite2D"]
 script = ExtResource("1_vk1bi")
@@ -13,3 +14,6 @@ volume_db = -9.369
 [node name="FireRate" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kw0bs")

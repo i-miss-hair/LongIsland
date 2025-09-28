@@ -1,6 +1,6 @@
 class_name Bullet extends CharacterBody2D
 
-const SPEED: int = 180
+const SPEED: int = 250
 const DAMAGE: int = 1
 const SHELL_CASING: PackedScene = preload("res://bullet_shell.tscn")
 
