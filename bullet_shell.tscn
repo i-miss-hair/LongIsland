@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtrag1l1t24g8"]
+
+[ext_resource type="Texture2D" uid="uid://b73mvoia8kehi" path="res://art/BulletFloor.png" id="1_1acbu"]
+[ext_resource type="Script" uid="uid://dldjuuserpnty" path="res://bullet_shell.gd" id="2_jg4kn"]
+
+[node name="bullet_shell" type="Sprite2D"]
+light_mask = 0
+texture = ExtResource("1_1acbu")
+script = ExtResource("2_jg4kn")

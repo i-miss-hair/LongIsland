@@ -2,6 +2,7 @@ class_name Bullet extends CharacterBody2D
 
 const SPEED: int = 180
 const DAMAGE: int = 1
+const SHELL_CASING: PackedScene = preload("res://bullet_shell.tscn")
 
 # Główna funkcja wywoływana w każdej klatce fizyki (60 razy na sekundę domyślnie).
 func _physics_process(delta: float) -> void:
@@ -16,3 +17,7 @@ func _physics_process(delta: float) -> void:
 func start(start_pos: Vector2, direction: Vector2) -> void:
 	global_position = start_pos
 	velocity = direction * SPEED
+	
+	var inst: Node = SHELL_CASING.instantiate()
+	inst.start(start_pos)
+	get_tree().current_scene.add_child(inst)
